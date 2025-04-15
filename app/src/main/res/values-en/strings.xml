@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Budgee</string>
+
+    <!-- Login -->
+    <string name="login_title">Welcome</string>
+    <string name="login_description">
+            Your daily guide to managing income and expenses easily and securely.
+    </string>
+    <string name="login_button">Login</string>
+    <string name="login_account">
+            No account yet?
+    </string>
+    <string name="login_signup">Sign Up</string>
+    <string name="login_reset">
+        Forgot Password?
+    </string>
+
+    <!-- Reset Password -->
+    <string name="reset_title">
+        Insert Email
+    </string>
+    <string name="reset_button">
+        Reset Password
+    </string>
+
+    <!-- SignUp -->
+    <string name="signup_name">Name</string>
+    <string name="signup_repeatPassword">Confirm Password</string>
+    <string name="signup_button">Sign Up</string>
+
+    <!-- Home -->
+    <string name="home_hello">Hello, </string>
+    <string name="home_description">Today try to spend less</string>
+    <string name="home_expense">Expenses</string>
+    <string name="home_income">Incomes</string>
+
+    <!-- Menu -->
+    <string name="menu_home">Transaction</string>
+    <string name="menu_methods">Method</string>
+    <string name="menu_category">Category</string>
+    <string name="menu_profile">Profile</string>
+
+    <!-- Transaction -->
+    <string name="transaction_title">Transactions</string>
+    <string name="transaction_detail">Details</string>
+    <string name="transaction_button_update">Update</string>
+    <string name="transaction_button_delete">Delete</string>
+
+    <!-- Method -->
+    <string name="method_title">Methods</string>
+
+    <!-- Category -->
+    <string name="category_title">Category</string>
+
+    <!-- Insert -->
+    <string name="insert_transaction">Insert Transactions</string>
+    <string name="insert_category">Insert Category</string>
+    <string name="insert_method">Insert Methods</string>
+    <string name="insert_receipt">AI Receipt</string>
+
+    <string name="insert_transaction_title">Insert Transaction</string>
+    <string name="insert_transaction_type">Type</string>
+    <string name="insert_transaction_category">Category</string>
+    <string name="insert_transaction_method">Method</string>
+    <string name="insert_transaction_value">Amount</string>
+    <string name="insert_transaction_name">Name</string>
+    <string name="insert_transaction_date">Date</string>
+    <string name="insert_transaction_button">Insert</string>
+
+    <string name="insert_category_title">Insert Category</string>
+    <string name="insert_method_title">Insert Methods</string>
+    <string name="insert_category_method_name">Name</string>
+    <string name="insert_category_method_button">Insert</string>
+
+    <string name="insert_AI_select">Select Image</string>
+    <string name="insert_AI_capture">Capture Image</string>
+    <string name="insert_AI_recognize">Recognize Text</string>
+
+    <!-- Profile -->
+    <string name="profile_language_title">Language</string>
+    <string name="profile_language_description">Select your language</string>
+    <string name="profile_currency_title">Currency</string>
+    <string name="profile_currency_description">Take your currency</string>
+    <string name="profile_logout_title">Logout</string>
+
+    <string name="profile_language_button">Select</string>
+</resources>

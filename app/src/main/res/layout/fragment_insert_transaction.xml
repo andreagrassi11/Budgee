@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.Profile.LanguageFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:text="@string/insert_transaction_title"
+                android:textColor="#FFFFFF"
+                android:textSize="25dp" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/insert_transaction_type"
+                android:textColor="#85248C"
+                android:textSize="18sp" />
+
+            <Spinner
+                android:id="@+id/spinnerType"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/rounded_background_white"
+                android:backgroundTint="#FFFFFF"
+                android:entries="@array/type"
+                android:popupBackground="@color/design_default_color_background" />
+
+            <TextView
+                android:id="@+id/textView14"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/insert_transaction_category"
+                android:textColor="#85248C"
+                android:textSize="18sp" />
+
+            <Spinner
+                android:id="@+id/spinner2"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/rounded_background_white"
+                android:backgroundTint="#FFFFFF" />
+
+            <TextView
+                android:id="@+id/textView15"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/insert_transaction_method"
+                android:textColor="#85248C"
+                android:textSize="18sp" />
+
+            <Spinner
+                android:id="@+id/spinner3"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/rounded_background_white"
+                android:backgroundTint="#FFFFFF" />
+
+            <TextView
+                android:id="@+id/textView16"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/insert_transaction_value"
+                android:textColor="#85248C"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/editTextText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#FFFFFF"
+                android:ems="10"
+                android:inputType="text"
+                android:textColor="#FFFFFF"
+                android:textColorHint="#FFFFFF" />
+
+            <TextView
+                android:id="@+id/textView19"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/insert_transaction_name"
+                android:textColor="#85248C"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/editTextText4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#FFFFFF"
+                android:ems="10"
+                android:inputType="text"
+                android:textColor="#FDFDFD"
+                android:textColorHint="#FFFFFF" />
+
+            <TextView
+                android:id="@+id/textView20"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/insert_transaction_date"
+                android:textColor="#85248C"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/etDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#FFFFFF"
+                android:ems="10"
+                android:focusable="false"
+                android:inputType="text"
+                android:textColor="#FFFFFF"
+                android:textColorHint="#FFFFFF" />
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/insert_transaction_button" />
+        </LinearLayout>
+    </ScrollView>
+
+</FrameLayout>

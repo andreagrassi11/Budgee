@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Budgee</string>
+
+    <!-- Login -->
+    <string name="login_title">Benvenuto</string>
+    <string name="login_description">
+            La tua guida quotidiana per gestire entrate e spese in modo semplice e sicuro.
+    </string>
+    <string name="login_button">Accedi</string>
+    <string name="login_account">
+            Non hai un account?
+    </string>
+    <string name="login_signup">Registrati</string>
+    <string name="login_reset">
+        Password dimenticata?
+    </string>
+
+    <!-- Reset Password -->
+    <string name="reset_title">Inserire Email</string>
+    <string name="reset_button">Ripristina Password</string>
+
+    <!-- SignUp -->
+    <string name="signup_name">Nome</string>
+    <string name="signup_repeatPassword">Ripeti Password</string>
+    <string name="signup_button">Registrati</string>
+
+    <!-- Home -->
+    <string name="home_hello">Ciao, </string>
+    <string name="home_description">Oggi prova a spendere meno.</string>
+    <string name="home_expense">Spese</string>
+    <string name="home_income">Ingressi</string>
+
+    <!-- Menu -->
+    <string name="menu_home">Transizioni</string>
+    <string name="menu_methods">Metodi</string>
+    <string name="menu_category">Categorie</string>
+    <string name="menu_profile">Profilo</string>
+
+    <!-- Transaction -->
+    <string name="transaction_title">Transizioni</string>
+    <string name="transaction_detail">Dettagli</string>
+    <string name="transaction_button_update">Aggiorna</string>
+    <string name="transaction_button_delete">Elimina</string>
+
+    <!-- Method -->
+    <string name="method_title">Metodi</string>
+
+    <!-- Category -->
+    <string name="category_title">Categorie</string>
+
+    <!-- Insert -->
+    <string name="insert_transaction">Inserimento transizioni</string>
+    <string name="insert_category">Inserimento Categorie</string>
+    <string name="insert_method">Inserimento Metodi</string>
+    <string name="insert_receipt">Scontrini AI</string>
+
+    <string name="insert_transaction_title">Inserimento transizione</string>
+    <string name="insert_transaction_type">Tipo</string>
+    <string name="insert_transaction_category">Categoria</string>
+    <string name="insert_transaction_method">Metodo</string>
+    <string name="insert_transaction_value">Importo</string>
+    <string name="insert_transaction_name">Nome</string>
+    <string name="insert_transaction_date">Data</string>
+    <string name="insert_transaction_button">Inserisci</string>
+
+    <string name="insert_category_title">Inserimento Categorie</string>
+    <string name="insert_method_title">Inserimento Metodi</string>
+    <string name="insert_category_method_name">Nome</string>
+    <string name="insert_category_method_button">Inserisci</string>
+
+    <string name="insert_AI_select">Selezione Immagine</string>
+    <string name="insert_AI_capture">Cattura Immagine</string>
+    <string name="insert_AI_recognize">Riconosci testo</string>
+
+    <!-- Profile -->
+    <string name="profile_language_title">Lingua</string>
+    <string name="profile_language_description">Seleziona la tua lingua</string>
+    <string name="profile_currency_title">Valuta</string>
+    <string name="profile_currency_description">Selezione la valuta che preferisci</string>
+    <string name="profile_logout_title">Esci</string>
+
+    <string name="profile_language_button">Seleziona</string>
+</resources>
