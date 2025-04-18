@@ -19,6 +19,16 @@ public class IncomeDAO {
         this.dbHelper = new DatabaseHelper(context);
     }
 
+    /**
+     * Insert User Income
+     * @param userId
+     * @param categoryId
+     * @param methodId
+     * @param value
+     * @param name
+     * @param date
+     * @return long
+     */
     public long insertIncome(String userId, int categoryId, int methodId, double value, String name, String date) {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -33,6 +43,12 @@ public class IncomeDAO {
         db.close();
         return result;
     }
+
+    /**
+     * Get all User Incomes
+     * @param userId
+     * @return List<Map<String, String>>
+     */
 
     public List<Map<String, String>> getUserIncomes(String userId) {
         List<Map<String, String>> incomeList = new ArrayList<>();
@@ -65,7 +81,7 @@ public class IncomeDAO {
      * @param category
      * @param method
      * @param amount
-     * @return
+     * @return boolean
      */
     public boolean updateUserIncome(String incomeId, String category, String method, String amount, String name, String date) {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
@@ -82,7 +98,11 @@ public class IncomeDAO {
         return rowsAffected > 0;
     }
 
-
+    /**
+     * Delete Income
+     * @param incomeId
+     * @return int
+     */
     public int deleteIncome(int incomeId) {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         int rowsDeleted = db.delete("Income", "income_id = ?", new String[]{String.valueOf(incomeId)});

@@ -19,6 +19,14 @@ public class UserDAO {
         this.dbHelper = new DatabaseHelper(context);
     }
 
+    /**
+     * Insert User
+     * @param id
+     * @param name
+     * @param surname
+     * @param email
+     * @return long
+     */
     public long insertUser(String id, String name, String surname, String email) {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -32,6 +40,11 @@ public class UserDAO {
         return result;
     }
 
+    /**
+     * User Info
+     * @param userId
+     * @return Map<String, String>
+     */
     public Map<String, String> getUserInfo(String userId) {
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         String id = "", name ="", surname = "", email = "";
@@ -52,6 +65,10 @@ public class UserDAO {
         return item;
     }
 
+    /**
+     * Get all users
+     * @return List<String>
+     */
     public List<String> getAllUsers() {
         List<String> users = new ArrayList<>();
         SQLiteDatabase db = dbHelper.getReadableDatabase();

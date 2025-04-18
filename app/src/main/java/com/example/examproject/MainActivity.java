@@ -3,6 +3,7 @@ package com.example.examproject;
 import static com.example.examproject.util.Utils.setLocale;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
@@ -40,6 +41,9 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences prefs = getSharedPreferences("settings", MODE_PRIVATE);
         String lang = prefs.getString("lang", "en"); // en default language
         setLocale(this, lang);
+
+        /* Lock screen orientation */
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home_template);

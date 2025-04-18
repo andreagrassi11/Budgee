@@ -19,6 +19,12 @@ public class MethodsDAO {
         this.dbHelper = new DatabaseHelper(context);
     }
 
+    /**
+     * Method to insert method
+     * @param userId
+     * @param methodName
+     * @return long
+     */
     public long insertMethod(String userId, String methodName) {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -30,7 +36,11 @@ public class MethodsDAO {
         return result;
     }
 
-    // Get Methods for a specific user
+    /**
+     * Take all user Method
+     * @param userId
+     * @return List<Map<String, String>>
+     */
     public List<Map<String, String>> getUserMethods(String userId) {
         List<Map<String, String>> methodList = new ArrayList<>();
         SQLiteDatabase db = dbHelper.getReadableDatabase();
@@ -50,6 +60,12 @@ public class MethodsDAO {
         return methodList;
     }
 
+    /**
+     * Get id Category from Name
+     * @param userId
+     * @param methodName
+     * @return int
+     */
     public int getMethodIdByName(String userId, String methodName) {
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         int methodId = -1; // Default value if not found
@@ -66,6 +82,12 @@ public class MethodsDAO {
         return methodId;
     }
 
+    /**
+     * Get name Method from Id
+     * @param userId
+     * @param methodId
+     * @return String
+     */
     public String getMethodNameById(String userId, int methodId) {
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         String methodName = ""; // Default value if not found
@@ -82,8 +104,12 @@ public class MethodsDAO {
         return methodName;
     }
 
-
-    // Update an existing Method
+    /**
+     * Method to update a method name
+     * @param methodId
+     * @param methodName
+     * @return boolean
+     */
     public boolean updateMethod(String methodId, String methodName) {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -95,7 +121,11 @@ public class MethodsDAO {
         return rowsAffected > 0;
     }
 
-    // Delete a Method
+    /**
+     * Method to delete a method
+     * @param methodId
+     * @return int
+     */
     public int deleteMethod(int methodId) {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         int rowsDeleted = db.delete("Method", "method_id = ?", new String[]{String.valueOf(methodId)});

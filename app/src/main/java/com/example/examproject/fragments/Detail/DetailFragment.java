@@ -1,7 +1,6 @@
 package com.example.examproject.fragments.Detail;
 
 import static com.example.examproject.util.Utils.openFragment;
-
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,9 +8,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import androidx.fragment.app.Fragment;
-
 import com.example.examproject.R;
 import com.example.examproject.database.DatabaseManagerTry;
 import com.example.examproject.fragments.Category.CategoryFragment;
@@ -37,14 +34,12 @@ public class DetailFragment extends Fragment {
             id = bundle.getInt("id");
             title = bundle.getString("title");
             type = bundle.getString("type");
-
             titleView = view.findViewById(R.id.editTextText11);
             titleView.setText(title);
         }
 
         /* Recupera id utente */
         String userId = sessionManager.getUserId();
-
         Button update = view.findViewById(R.id.buttonUpdate);
         Button delete = view.findViewById(R.id.buttonDelete);
 
