@@ -35,8 +35,6 @@ import java.io.IOException;
 
 public class InsertReceiptFragment extends Fragment {
     private ImageView imageView;
-    private Button selectButton;
-    private Button captureButton;
     private Button recognizeButton;
     private Bitmap selectedImage;
 
@@ -71,8 +69,8 @@ public class InsertReceiptFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_insert_receipt, container, false);
         imageView = view.findViewById(R.id.imageView);
-        selectButton = view.findViewById(R.id.selectButton);
-        captureButton = view.findViewById(R.id.captureButton);
+        Button selectButton = view.findViewById(R.id.selectButton);
+        Button captureButton = view.findViewById(R.id.captureButton);
         recognizeButton = view.findViewById(R.id.recognizeButton);
 
         selectButton.setOnClickListener(v -> selectImage());

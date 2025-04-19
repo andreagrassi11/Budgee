@@ -200,7 +200,7 @@
 
             <androidx.fragment.app.FragmentContainerView
                 android:id="@+id/fragmentContainerView"
-                android:name="com.example.examproject.fragments.Transaction.HomeFragment"
+                android:name="com.example.examproject.fragments.transaction.HomeFragment"
                 android:layout_width="match_parent"
                 android:layout_height="470dp" />
 

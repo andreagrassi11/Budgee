@@ -1,8 +1,7 @@
-package com.example.examproject.fragments.Login;
+package com.example.examproject.fragments.login;
 
 import static com.example.examproject.util.Utils.openFragment;
 
-import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -14,7 +13,6 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.examproject.R;
-import com.example.examproject.database.DatabaseManagerTry;
 
 public class WelcomeFragment extends Fragment {
     private Button loginButton;

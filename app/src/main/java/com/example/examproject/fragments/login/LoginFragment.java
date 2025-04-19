@@ -1,6 +1,5 @@
-package com.example.examproject.fragments.Login;
+package com.example.examproject.fragments.login;
 
-import android.content.Intent;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -27,8 +26,7 @@ import static com.example.examproject.util.Utils.openFragment;
 public class LoginFragment extends Fragment {
     private EditText usernameEditText;
     private EditText passwordEditText;
-    private TextView resetPassword, title;
-    private Button loginButton;
+    private TextView title;
     private FirebaseAuth mAuth;
 
     @Override
@@ -45,8 +43,8 @@ public class LoginFragment extends Fragment {
         title = view.findViewById(R.id.textView4);
         usernameEditText = view.findViewById(R.id.editText);
         passwordEditText = view.findViewById(R.id.editTextTextPassword2);
-        loginButton = view.findViewById(R.id.loginButton);
-        resetPassword = view.findViewById(R.id.resetPassword);
+        Button loginButton = view.findViewById(R.id.loginButton);
+        TextView resetPassword = view.findViewById(R.id.resetPassword);
 
         /* Listener */
         loginButton.setOnClickListener(v -> loginUser());

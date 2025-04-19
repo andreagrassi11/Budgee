@@ -1,4 +1,4 @@
-package com.example.examproject.fragments.Login;
+package com.example.examproject.fragments.login;
 
 import android.os.Bundle;
 
@@ -9,12 +9,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.examproject.R;
 import com.example.examproject.database.DatabaseManagerTry;
-import com.example.examproject.fragments.Login.Feedback.FeedbackFragment;
+import com.example.examproject.fragments.login.Feedback.FeedbackFragment;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;

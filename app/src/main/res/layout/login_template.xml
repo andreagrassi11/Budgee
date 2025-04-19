@@ -33,7 +33,7 @@
 
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/fragmentWelcome"
-            android:name="com.example.examproject.fragments.Login.WelcomeFragment"
+            android:name="com.example.examproject.fragments.login.WelcomeFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
     </LinearLayout>

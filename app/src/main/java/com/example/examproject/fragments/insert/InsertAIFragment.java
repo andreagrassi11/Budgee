@@ -20,7 +20,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.examproject.R;
 import com.example.examproject.database.DatabaseManagerTry;
-import com.example.examproject.fragments.Transaction.HomeFragment;
+import com.example.examproject.fragments.transaction.HomeFragment;
 import com.example.examproject.session.SessionManager;
 
 import java.text.ParseException;
@@ -36,9 +36,14 @@ public class InsertAIFragment extends Fragment {
 
     private DatabaseManagerTry dbManager;
     private View view;
-    private EditText etDate, editTextValue, editTextName, editTextDate;
+    private EditText etDate;
+    private EditText editTextValue;
+    private EditText editTextName;
+    private EditText editTextDate;
     private Calendar calendar;
-    private String name, date, total;
+    private String name;
+    private String date;
+    private String total;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

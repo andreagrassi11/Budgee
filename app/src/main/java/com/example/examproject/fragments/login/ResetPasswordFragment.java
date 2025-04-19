@@ -1,4 +1,4 @@
-package com.example.examproject.fragments.Login;
+package com.example.examproject.fragments.login;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -11,7 +11,7 @@ import android.widget.Toast;
 import androidx.fragment.app.Fragment;
 
 import com.example.examproject.R;
-import com.example.examproject.fragments.Login.Feedback.FeedbackFragment;
+import com.example.examproject.fragments.login.Feedback.FeedbackFragment;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
 

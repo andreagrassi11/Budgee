@@ -1,4 +1,4 @@
-package com.example.examproject.fragments.Transaction;
+package com.example.examproject.fragments.transaction;
 
 import static com.example.examproject.util.Utils.openDetailFragment;
 
@@ -11,7 +11,7 @@ import com.example.examproject.R;
 import com.example.examproject.adapter.TransactionAdapterNew;
 import com.example.examproject.adapter.model.Transaction;
 import com.example.examproject.database.DatabaseManagerTry;
-import com.example.examproject.fragments.Detail.DetailTransactionFragment;
+import com.example.examproject.fragments.detail.DetailTransactionFragment;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;

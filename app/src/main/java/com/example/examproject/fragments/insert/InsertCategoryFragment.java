@@ -13,7 +13,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.example.examproject.R;
 import com.example.examproject.database.DatabaseManagerTry;
-import com.example.examproject.fragments.Category.CategoryFragment;
+import com.example.examproject.fragments.category.CategoryFragment;
 import com.example.examproject.session.SessionManager;
 
 

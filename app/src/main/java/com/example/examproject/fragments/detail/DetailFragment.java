@@ -1,4 +1,4 @@
-package com.example.examproject.fragments.Detail;
+package com.example.examproject.fragments.detail;
 
 import static com.example.examproject.util.Utils.openFragment;
 import android.os.Bundle;
@@ -11,15 +11,16 @@ import android.widget.Toast;
 import androidx.fragment.app.Fragment;
 import com.example.examproject.R;
 import com.example.examproject.database.DatabaseManagerTry;
-import com.example.examproject.fragments.Category.CategoryFragment;
-import com.example.examproject.fragments.Method.MethodsFragment;
+import com.example.examproject.fragments.category.CategoryFragment;
+import com.example.examproject.fragments.method.MethodsFragment;
 import com.example.examproject.session.SessionManager;
 
 public class DetailFragment extends Fragment {
 
     private EditText titleView;
     private int id;
-    private String title, type;
+    private String title;
+    private String type;
     private DatabaseManagerTry dbManager;
 
     @Override

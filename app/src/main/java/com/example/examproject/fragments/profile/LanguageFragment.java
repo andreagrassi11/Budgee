@@ -1,4 +1,4 @@
-package com.example.examproject.fragments.Profile;
+package com.example.examproject.fragments.profile;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -10,7 +10,6 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.content.res.Configuration;
 import java.util.Locale;
 import com.example.examproject.R;

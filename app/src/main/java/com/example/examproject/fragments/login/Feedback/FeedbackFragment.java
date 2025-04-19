@@ -1,4 +1,4 @@
-package com.example.examproject.fragments.Login.Feedback;
+package com.example.examproject.fragments.login.Feedback;
 
 import static com.example.examproject.util.Utils.openFragment;
 import android.os.Bundle;
@@ -8,11 +8,12 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import androidx.fragment.app.Fragment;
 import com.example.examproject.R;
-import com.example.examproject.fragments.Login.LoginFragment;
+import com.example.examproject.fragments.login.LoginFragment;
 
 public class FeedbackFragment extends Fragment {
 
-    private TextView tx, login;
+    private TextView tx;
+    private TextView login;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

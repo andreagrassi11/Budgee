@@ -1,7 +1,7 @@
-package com.example.examproject.fragments.Transaction;
+package com.example.examproject.fragments.transaction;
 
-import static com.example.examproject.fragments.Transaction.Util.getUserTransactionsByMonth;
-import static com.example.examproject.fragments.Transaction.Util.setTransactions;
+import static com.example.examproject.fragments.transaction.Util.getUserTransactionsByMonth;
+import static com.example.examproject.fragments.transaction.Util.setTransactions;
 
 import android.content.Context;
 import android.os.Bundle;

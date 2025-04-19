@@ -11,6 +11,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.examproject.R;
 import com.example.examproject.adapter.model.Transaction;
 
+import org.w3c.dom.Text;
+
 import java.util.List;
 
 public class TransactionAdapterNew extends RecyclerView.Adapter<TransactionAdapterNew.ViewHolder> {
@@ -58,7 +60,9 @@ public class TransactionAdapterNew extends RecyclerView.Adapter<TransactionAdapt
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        TextView title, subtitle, amount;
+        TextView title;
+        TextView subtitle;
+        TextView amount;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);

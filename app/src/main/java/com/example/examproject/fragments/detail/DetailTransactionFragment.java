@@ -1,4 +1,4 @@
-package com.example.examproject.fragments.Detail;
+package com.example.examproject.fragments.detail;
 
 import static com.example.examproject.util.Utils.openFragment;
 
@@ -14,9 +14,7 @@ import androidx.fragment.app.Fragment;
 
 import com.example.examproject.R;
 import com.example.examproject.database.DatabaseManagerTry;
-import com.example.examproject.fragments.Category.CategoryFragment;
-import com.example.examproject.fragments.Method.MethodsFragment;
-import com.example.examproject.fragments.Transaction.HomeFragment;
+import com.example.examproject.fragments.transaction.HomeFragment;
 import com.example.examproject.session.SessionManager;
 
 public class DetailTransactionFragment extends Fragment {

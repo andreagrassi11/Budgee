@@ -46,8 +46,12 @@ public class UserDAO {
      * @return Map<String, String>
      */
     public Map<String, String> getUserInfo(String userId) {
+        String id = "";
+        String name ="";
+        String surname = "";
+        String email = "";
+
         SQLiteDatabase db = dbHelper.getReadableDatabase();
-        String id = "", name ="", surname = "", email = "";
         Map<String, String> item = new HashMap<>();
 
         Cursor cursor = db.rawQuery("SELECT * FROM User WHERE id_firebase = ?",

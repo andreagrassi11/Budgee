@@ -1,4 +1,4 @@
-package com.example.examproject.fragments.Category;
+package com.example.examproject.fragments.method;
 
 import static com.example.examproject.util.Utils.openDetailFragment;
 
@@ -10,20 +10,23 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
 import com.example.examproject.R;
-import com.example.examproject.adapter.TransactionAdapterNew;
 import com.example.examproject.adapter.model.Transaction;
+import com.example.examproject.adapter.TransactionAdapterNew;
 import com.example.examproject.database.DatabaseManagerTry;
-import com.example.examproject.fragments.Detail.DetailFragment;
+import com.example.examproject.fragments.detail.DetailFragment;
 import com.example.examproject.session.SessionManager;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-public class CategoryFragment extends Fragment {
+public class MethodsFragment extends Fragment {
 
     private DatabaseManagerTry dbManager;
     private SessionManager sessionManager;
@@ -36,26 +39,26 @@ public class CategoryFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_category, container, false);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        return inflater.inflate(R.layout.fragment_methods, container, false);
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
+        // Recupera dati utente
         String userId = sessionManager.getUserId();
 
-        // Take Transactio
-        RecyclerView recyclerViewCategory = view.findViewById(R.id.recyclerViewCategory);
-        recyclerViewCategory.setLayoutManager(new LinearLayoutManager(getContext()));
+        // Take Transaction
+        dbManager = new DatabaseManagerTry(getContext());
+        RecyclerView recyclerView = view.findViewById(R.id.methodsList);
+            recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         List<Transaction> transactions = new ArrayList<>();
 
         /* Recupero Methods */
-        List<Map<String, String>> methods = dbManager.getCategoryDAO().getUserCategories(userId);
+        List<Map<String, String>> methods = dbManager.getMethodsDAO().getUserMethods(userId);
 
-        for (Map<String, String> method : methods) {
+            for (Map<String, String> method : methods) {
             transactions.add(new Transaction(Integer.parseInt(method.get("ID")), method.get("Name"), null, null, null, null));
         }
 
@@ -64,11 +67,11 @@ public class CategoryFragment extends Fragment {
             Bundle bundle = new Bundle();
             bundle.putInt("id", transaction.getId());
             bundle.putString("title", transaction.getTitle());
-            bundle.putString("type", "category"); // Methods or Category
+            bundle.putString("type", "method"); // Methods or Category
             openDetailFragment(new DetailFragment(), transaction, requireActivity(), bundle);
         });
 
-        recyclerViewCategory.setAdapter(adapter);
+        recyclerView.setAdapter(adapter);
     }
 
     @Override

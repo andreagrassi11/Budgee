@@ -1,4 +1,4 @@
-package com.example.examproject.fragments.Profile;
+package com.example.examproject.fragments.profile;
 
 import static com.example.examproject.util.Utils.openFragment;
 
@@ -22,7 +22,8 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class ProfileFragment extends Fragment {
 
-    private FrameLayout languageFrame, logoutFrame;
+    private FrameLayout languageFrame;
+    private FrameLayout logoutFrame;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

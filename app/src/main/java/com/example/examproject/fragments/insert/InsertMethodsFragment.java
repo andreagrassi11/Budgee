@@ -11,7 +11,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import com.example.examproject.R;
 import com.example.examproject.database.DatabaseManagerTry;
-import com.example.examproject.fragments.Method.MethodsFragment;
+import com.example.examproject.fragments.method.MethodsFragment;
 import com.example.examproject.session.SessionManager;
 
 
