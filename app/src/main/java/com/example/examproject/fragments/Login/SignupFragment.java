@@ -22,7 +22,11 @@ import com.google.firebase.auth.FirebaseUser;
 public class SignupFragment extends Fragment {
 
     private FirebaseAuth mAuth;
-    private EditText nameText, surnameText, editTextEmail, editTextPassword, editTextConfirmPassword;
+    private EditText nameText;
+    private EditText surnameText;
+    private EditText editTextEmail;
+    private EditText editTextPassword;
+    private EditText editTextConfirmPassword;
     private Button buttonSignup;
     private DatabaseManagerTry dbManager;
 

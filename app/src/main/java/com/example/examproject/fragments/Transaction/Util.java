@@ -26,7 +26,8 @@ public class Util {
     public static List<Transaction> getUserTransactionsByMonth(String userId, String monthYear, FragmentActivity fr, DatabaseManagerTry dbManagerNew) {
 
         List<Transaction> monthTransaction = new ArrayList<>();
-        double sumIncome = 0, sumExpense = 0;
+        double sumIncome = 0;
+        double sumExpense = 0;
 
         // Ottieni entrate e spese
         List<Transaction> transactions = Util.takeTransaction(userId, dbManagerNew);

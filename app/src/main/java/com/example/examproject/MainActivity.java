@@ -16,7 +16,7 @@ import androidx.fragment.app.Fragment;
 import com.example.examproject.database.DatabaseManagerTry;
 import com.example.examproject.fragments.Category.CategoryFragment;
 import com.example.examproject.fragments.Transaction.HomeFragment;
-import com.example.examproject.fragments.Insert.InsertFragment;
+import com.example.examproject.fragments.insert.InsertFragment;
 import com.example.examproject.fragments.Profile.ProfileFragment;
 import com.example.examproject.fragments.Method.MethodsFragment;
 import com.example.examproject.session.SessionManager;

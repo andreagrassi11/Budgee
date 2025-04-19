@@ -25,7 +25,8 @@ import static com.example.examproject.util.Utils.openActivity;
 import static com.example.examproject.util.Utils.openFragment;
 
 public class LoginFragment extends Fragment {
-    private EditText usernameEditText, passwordEditText;
+    private EditText usernameEditText;
+    private EditText passwordEditText;
     private TextView resetPassword, title;
     private Button loginButton;
     private FirebaseAuth mAuth;

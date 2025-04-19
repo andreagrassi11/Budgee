@@ -1,4 +1,4 @@
-package com.example.examproject.fragments.Insert;
+package com.example.examproject.fragments.insert;
 
 import android.app.DatePickerDialog;
 import android.content.Context;

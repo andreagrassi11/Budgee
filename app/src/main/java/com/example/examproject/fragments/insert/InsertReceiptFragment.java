@@ -1,24 +1,17 @@
-package com.example.examproject.fragments.Insert;
-
-import static com.example.examproject.util.Utils.openDetailFragment;
-import static com.example.examproject.util.Utils.openFragment;
+package com.example.examproject.fragments.insert;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import com.example.examproject.R;
-import com.example.examproject.fragments.Detail.DetailFragment;
-import com.example.examproject.fragments.Login.LoginFragment;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
-import com.google.android.gms.tasks.Tasks;
 import com.google.mlkit.vision.common.InputImage;
 import com.google.mlkit.vision.text.Text;
 import com.google.mlkit.vision.text.TextRecognition;
@@ -27,7 +20,6 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.provider.MediaStore;
-import android.util.Log;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -36,7 +28,6 @@ import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.lifecycle.ViewModelProvider;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -44,7 +35,9 @@ import java.io.IOException;
 
 public class InsertReceiptFragment extends Fragment {
     private ImageView imageView;
-    private Button selectButton, captureButton, recognizeButton;
+    private Button selectButton;
+    private Button captureButton;
+    private Button recognizeButton;
     private Bitmap selectedImage;
 
     // Register activity result launchers for selecting/capturing images
@@ -116,7 +109,7 @@ public class InsertReceiptFragment extends Fragment {
 
         SharedViewModel viewModel = new ViewModelProvider(requireActivity()).get(SharedViewModel.class);
 
-        Task<Text> result = recognizer.process(image)
+        recognizer.process(image)
                         .addOnSuccessListener(new OnSuccessListener<Text>() {
                             @Override
                             public void onSuccess(Text visionText) {

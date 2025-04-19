@@ -19,7 +19,6 @@ import androidx.annotation.Nullable;
 public class LanguageFragment extends Fragment {
 
     private Spinner languageSpinner;
-    private TextView languageText;
     private String[] languages = {"English", "Italiano"};
     private Button button;
 
@@ -34,7 +33,6 @@ public class LanguageFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         languageSpinner = view.findViewById(R.id.language_spinner);
-        languageText = view.findViewById(R.id.language_text);
         button = view.findViewById(R.id.button6);
 
         button.setOnClickListener(v -> {

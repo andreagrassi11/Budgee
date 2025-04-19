@@ -1,4 +1,4 @@
-package com.example.examproject.fragments.Insert;
+package com.example.examproject.fragments.insert;
 
 import static com.example.examproject.util.Utils.openFragment;
 

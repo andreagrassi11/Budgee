@@ -1,4 +1,4 @@
-package com.example.examproject.fragments.Insert;
+package com.example.examproject.fragments.insert;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

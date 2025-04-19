@@ -21,9 +21,18 @@ import com.example.examproject.session.SessionManager;
 
 public class DetailTransactionFragment extends Fragment {
 
-    private EditText titleView, dateView, amountView, methodView, categoryView;
+    private EditText titleView;
+    private EditText dateView;
+    private EditText amountView;
+    private EditText methodView;
+    private EditText categoryView;
     private int id;
-    private String amount,title,date,method,category,type;
+    private String amount;
+    private String title;
+    private String date;
+    private String method;
+    private String category;
+    private String type;
     private DatabaseManagerTry dbManager;
 
     @Override

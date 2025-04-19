@@ -1,4 +1,4 @@
-package com.example.examproject.fragments.Insert;
+package com.example.examproject.fragments.insert;
 
 import android.app.DatePickerDialog;
 import android.content.Context;
@@ -12,7 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
-import android.content.SharedPreferences;
+
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import com.example.examproject.R;
@@ -31,7 +31,9 @@ public class InsertTransactionFragment extends Fragment {
     private View view;
     private EditText etDate;
     private Calendar calendar;
-    private String name, date, total;
+    private String name;
+    private String date;
+    private String total;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
