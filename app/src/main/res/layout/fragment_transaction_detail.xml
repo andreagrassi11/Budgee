@@ -7,97 +7,140 @@
     tools:context=".fragments.profile.LanguageFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginLeft="25dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginRight="25dp"
-        android:orientation="vertical">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="63dp"
-            android:layout_marginTop="20dp"
-            android:text="@string/transaction_detail"
-            android:textColor="#FFFFFF"
-            android:textSize="25dp" />
-
-        <EditText
-            android:id="@+id/editTextText11"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:backgroundTint="#FFFFFF"
-            android:ems="10"
-            android:inputType="text"
-            android:textColor="#FFFFFF"
-            android:textColorHint="#FFFFFF" />
-
-        <EditText
-            android:id="@+id/editTextText12"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:backgroundTint="#FFFFFF"
-            android:ems="10"
-            android:inputType="text"
-            android:textColor="#FFFFFF"
-            android:textColorHint="#FFFFFF" />
-
-        <EditText
-            android:id="@+id/editTextText13"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:backgroundTint="#FFFFFF"
-            android:ems="10"
-            android:inputType="text"
-            android:textColor="#FFFFFF"
-            android:textColorHint="#FFFFFF" />
-
-        <EditText
-            android:id="@+id/editTextText14"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:backgroundTint="#FFFFFF"
-            android:ems="10"
-            android:inputType="text"
-            android:textColor="#FFFFFF"
-            android:textColorHint="#FFFFFF" />
-
-        <EditText
-            android:id="@+id/editTextText16"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:backgroundTint="#FFFFFF"
-            android:ems="10"
-            android:inputType="text"
-            android:textColor="#FFFFFF"
-            android:textColorHint="#FFFFFF" />
+        android:layout_marginRight="25dp">
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="30dp"
-            android:orientation="horizontal">
+            android:orientation="vertical">
 
-            <Button
-                android:id="@+id/buttonUpdate"
-                android:layout_width="wrap_content"
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="63dp"
+                android:layout_marginTop="20dp"
+                android:text="@string/transaction_detail"
+                android:textColor="#FFFFFF"
+                android:textSize="25dp" />
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:backgroundTint="#85248C"
-                android:text="@string/transaction_button_update" />
+                android:text="@string/insert_transaction_category"
+                android:textColor="#85248C"
+                android:textSize="18sp" />
 
-            <Button
-                android:id="@+id/buttonDelete"
+            <Spinner
+                android:id="@+id/spinner"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/rounded_background_white"
+                android:backgroundTint="#FFFFFF" />
+
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/insert_transaction_method"
+                android:textColor="#85248C"
+                android:textSize="18sp" />
+
+            <Spinner
+                android:id="@+id/spinner4"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/rounded_background_white"
+                android:backgroundTint="#FFFFFF" />
+
+            <TextView
+                android:id="@+id/textView25"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/insert_transaction_value"
+                android:textColor="#85248C"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/editTextText13"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#FFFFFF"
+                android:ems="10"
+                android:inputType="text"
+                android:textColor="#FFFFFF"
+                android:textColorHint="#FFFFFF" />
+
+            <TextView
+                android:id="@+id/textView27"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/insert_transaction_name"
+                android:textColor="#85248C"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/editText11"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#FFFFFF"
+                android:ems="10"
+                android:inputType="text"
+                android:textColor="#FDFDFD"
+                android:textColorHint="#FFFFFF" />
+
+            <TextView
+                android:id="@+id/textView28"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/insert_transaction_date"
+                android:textColor="#85248C"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/etDate2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#FFFFFF"
+                android:ems="10"
+                android:focusable="false"
+                android:inputType="text"
+                android:textColor="#FFFFFF"
+                android:textColorHint="#FFFFFF" />
+
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginLeft="25dp"
-                android:backgroundTint="#C52121"
-                android:text="@string/transaction_button_delete"
-                app:icon="@android:drawable/ic_menu_delete" />
-        </LinearLayout>
+                android:layout_marginTop="30dp"
+                android:orientation="horizontal">
 
-    </LinearLayout>
+                <Button
+                    android:id="@+id/buttonUpdate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="#85248C"
+                    android:text="@string/transaction_button_update" />
+
+                <Button
+                    android:id="@+id/buttonDelete"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginLeft="25dp"
+                    android:backgroundTint="#C52121"
+                    android:text="@string/transaction_button_delete"
+                    app:icon="@android:drawable/ic_menu_delete" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
 
 </FrameLayout>

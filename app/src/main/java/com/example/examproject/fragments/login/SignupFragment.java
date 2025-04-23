@@ -1,8 +1,13 @@
 package com.example.examproject.fragments.login;
 
+import static com.example.examproject.util.Utils.openFragment;
+
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -46,10 +51,16 @@ public class SignupFragment extends Fragment {
         editTextConfirmPassword = view.findViewById(R.id.editTextText8);
         buttonSignup = view.findViewById(R.id.button5);
 
-        /* Listener */
-        buttonSignup.setOnClickListener(v -> registerUser());
-
         return view;
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        buttonSignup.setOnClickListener(v ->
+                registerUser()
+        );
     }
 
     private void registerUser() {
@@ -122,10 +133,12 @@ public class SignupFragment extends Fragment {
                                 FeedbackFragment feedback = new FeedbackFragment();
                                 feedback.setArguments(bundle);
 
-                                getParentFragmentManager().beginTransaction()
+                                openFragment( feedback, getParentFragmentManager(), R.id.fragmentWelcome);
+
+                                /*getParentFragmentManager().beginTransaction()
                                         .replace(R.id.fragmentWelcome, feedback)
                                         .addToBackStack(null)
-                                        .commit();
+                                        .commit();*/
                             }
                         }
                     } else {

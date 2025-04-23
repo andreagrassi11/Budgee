@@ -16,6 +16,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.FrameLayout;
 import android.widget.Spinner;
 
 import com.example.examproject.R;
@@ -24,9 +25,13 @@ import com.example.examproject.adapter.model.Transaction;
 import com.example.examproject.database.DatabaseManagerTry;
 import com.example.examproject.session.SessionManager;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 public class HomeFragment extends Fragment {
 
@@ -55,6 +60,9 @@ public class HomeFragment extends Fragment {
         /* Variable */
         calendar = Calendar.getInstance();
         userId = sessionManager.getUserId();
+        recyclerView = rootView.findViewById(R.id.recyclerViewTransaction);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        spinner = rootView.findViewById(R.id.spinner_transaction_month_year);
 
         return rootView;
     }
@@ -63,10 +71,6 @@ public class HomeFragment extends Fragment {
     public void onViewCreated(@NonNull View rootView, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(rootView, savedInstanceState);
 
-        recyclerView = rootView.findViewById(R.id.recyclerViewTransaction);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-
-        spinner = rootView.findViewById(R.id.spinner_transaction_month_year);
         /* Recupero Transaction Utente mese corrente */
         int currentYear = calendar.get(Calendar.YEAR);
         int currentMonth = calendar.get(Calendar.MONTH) + 1;
@@ -93,6 +97,10 @@ public class HomeFragment extends Fragment {
         adapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter3);
 
+        int defaultPosition = dateList.indexOf(currentDate);
+        if (defaultPosition != -1) {
+            spinner.setSelection(defaultPosition);
+        }
 
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -109,7 +117,6 @@ public class HomeFragment extends Fragment {
                 /* Setto le Transaction */
                 TransactionAdapterNew adapter = setTransactions(transactions, requireActivity());
                 recyclerView.setAdapter(adapter);
-
             }
 
             @Override
@@ -120,43 +127,59 @@ public class HomeFragment extends Fragment {
 
     }
 
-        @Override
+    @Override
     public void onStart() {
         super.onStart();
 
 
-        /*int currentYear = calendar.get(Calendar.YEAR);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        /* Visibility */
+        FrameLayout fr = getActivity().findViewById(R.id.incomeExpenses);
+        if (fr != null) {
+            fr.setVisibility(this instanceof HomeFragment ? View.VISIBLE : View.GONE);
+        }
+
+        /* Recupero Transaction Utente mese corrente */
+        int currentYear = calendar.get(Calendar.YEAR);
         int currentMonth = calendar.get(Calendar.MONTH) + 1;
         String currentDate = String.format("%02d-%d", currentMonth, currentYear);
 
-        List<Transaction> transactions = getUserTransactionsByMonth(userId, currentDate, getActivity(), dbManager);
+        getParentFragmentManager().setFragmentResultListener(
+                "myKey", getViewLifecycleOwner(), (requestKey, bundle) -> {
+                    String result = bundle.getString("date");
+                    String dateFinal = "";
 
-        /* Setto le Transaction */
-       /* TransactionAdapterNew adapter = setTransactions(transactions, requireActivity());
-        recyclerView.setAdapter(adapter);
+                    if(result != null){
 
-        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                        try {
+                            SimpleDateFormat inputFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
+                            Date date = inputFormat.parse(result);
 
-                if (!isUserInteraction) {
-                    isUserInteraction = true;
-                    return;
+                            calendar.setTime(date);
+
+                            int year = calendar.get(Calendar.YEAR);
+                            int month = calendar.get(Calendar.MONTH) + 1;
+
+                            dateFinal = String.format("%02d-%d", month, year);
+                        } catch (ParseException e) {
+                            e.printStackTrace();
+                        }
+                    }else{
+                        dateFinal = currentDate;
+                    }
+
+                    List<Transaction> transactions = getUserTransactionsByMonth(userId, dateFinal, getActivity(), dbManager);
+
+                    /* Setto le Transaction */
+                    TransactionAdapterNew adapter = setTransactions(transactions, requireActivity());
+                    recyclerView.setAdapter(adapter);
                 }
-
-                String selectedItem = parent.getItemAtPosition(position).toString();
-                List<Transaction> transactions = getUserTransactionsByMonth(userId, selectedItem, getActivity(), dbManager);
-
-                /* Setto le Transaction */
-            /*    TransactionAdapterNew adapter = setTransactions(transactions, requireActivity());
-                recyclerView.setAdapter(adapter);
-
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-            }
-        });*/
+        );
     }
 
 
@@ -165,11 +188,4 @@ public class HomeFragment extends Fragment {
         super.onDestroyView();
         if (dbManager != null) dbManager.close();
     }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-
-    }
-
 }

@@ -4,6 +4,8 @@ import static com.example.examproject.util.Utils.openFragment;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -25,10 +27,15 @@ public class WelcomeFragment extends Fragment {
         loginButton = view.findViewById(R.id.firstButton);
         signUpTextView = view.findViewById(R.id.signUpTextView);
 
-        /* Listener */
-        loginButton.setOnClickListener(v -> openFragment(new LoginFragment(), getParentFragmentManager(), R.id.fragmentWelcome));
-        signUpTextView.setOnClickListener(v -> openFragment(new SignupFragment(), getParentFragmentManager(), R.id.fragmentWelcome));
-
         return view;
     }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        loginButton.setOnClickListener(v -> openFragment(new LoginFragment(), getParentFragmentManager(), R.id.fragmentWelcome));
+        signUpTextView.setOnClickListener(v -> openFragment(new SignupFragment(), getParentFragmentManager(), R.id.fragmentWelcome));
+    }
+
 }

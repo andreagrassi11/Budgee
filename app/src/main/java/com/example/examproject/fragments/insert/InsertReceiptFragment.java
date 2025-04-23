@@ -1,13 +1,15 @@
 package com.example.examproject.fragments.insert;
 
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-
 import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
+import android.Manifest;
 import com.example.examproject.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -22,11 +24,9 @@ import android.net.Uri;
 import android.provider.MediaStore;
 import android.widget.Button;
 import android.widget.Toast;
-
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.lifecycle.ViewModelProvider;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -37,8 +37,45 @@ public class InsertReceiptFragment extends Fragment {
     private ImageView imageView;
     private Button recognizeButton;
     private Bitmap selectedImage;
+    private ActivityResultLauncher<String> cameraPermissionLauncher;
 
-    // Register activity result launchers for selecting/capturing images
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+
+
+        cameraPermissionLauncher = registerForActivityResult(
+                new ActivityResultContracts.RequestPermission(),
+                isGranted -> {
+                    if (isGranted) {
+                        Toast.makeText(getContext(), "Permission OK", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(getContext(), "Camera permission denied", Toast.LENGTH_SHORT).show();
+                    }
+                }
+        );
+
+        checkCameraPermission();
+
+        View view = inflater.inflate(R.layout.fragment_insert_receipt, container, false);
+        imageView = view.findViewById(R.id.imageView);
+        Button selectButton = view.findViewById(R.id.selectButton);
+        Button captureButton = view.findViewById(R.id.captureButton);
+        recognizeButton = view.findViewById(R.id.recognizeButton);
+
+        selectButton.setOnClickListener(v -> selectImage());
+        captureButton.setOnClickListener(v -> captureImage());
+        recognizeButton.setOnClickListener(v -> {
+            if (selectedImage != null) {
+                runTextRecognition();
+
+            } else
+                Toast.makeText(getContext(), "Select an image", Toast.LENGTH_SHORT).show();
+        });
+
+        return view;
+    }
+
     private final ActivityResultLauncher<Intent> galleryLauncher = registerForActivityResult(
             new ActivityResultContracts.StartActivityForResult(),
             result -> {
@@ -63,42 +100,26 @@ public class InsertReceiptFragment extends Fragment {
                 }
             });
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-
-        View view = inflater.inflate(R.layout.fragment_insert_receipt, container, false);
-        imageView = view.findViewById(R.id.imageView);
-        Button selectButton = view.findViewById(R.id.selectButton);
-        Button captureButton = view.findViewById(R.id.captureButton);
-        recognizeButton = view.findViewById(R.id.recognizeButton);
-
-        selectButton.setOnClickListener(v -> selectImage());
-        captureButton.setOnClickListener(v -> captureImage());
-        recognizeButton.setOnClickListener(v -> {
-            if (selectedImage != null) {
-                runTextRecognition();
-
-            } else
-                Toast.makeText(getContext(), "Select an image", Toast.LENGTH_SHORT).show();
-        });
-
-        return view;
+    private void checkCameraPermission() {
+        if (ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.CAMERA)
+                != PackageManager.PERMISSION_GRANTED) {
+            cameraPermissionLauncher.launch(Manifest.permission.CAMERA);
+        }
     }
 
-    // Open gallery to select an image
     private void selectImage() {
         Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
         galleryLauncher.launch(intent);
     }
 
-    // Open camera to capture an image
     private void captureImage() {
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         cameraLauncher.launch(intent);
     }
 
-    // Process text recognition
+    /**
+     * TODO: Create an external file
+     */
     private void runTextRecognition() {
 
         InputImage image = InputImage.fromBitmap(selectedImage, 0);

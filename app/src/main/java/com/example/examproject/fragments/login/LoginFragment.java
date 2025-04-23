@@ -2,6 +2,7 @@ package com.example.examproject.fragments.login;
 
 import android.os.Bundle;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -28,6 +29,8 @@ public class LoginFragment extends Fragment {
     private EditText passwordEditText;
     private TextView title;
     private FirebaseAuth mAuth;
+    private Button loginButton;
+    private TextView resetPassword;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -43,14 +46,20 @@ public class LoginFragment extends Fragment {
         title = view.findViewById(R.id.textView4);
         usernameEditText = view.findViewById(R.id.editText);
         passwordEditText = view.findViewById(R.id.editTextTextPassword2);
-        Button loginButton = view.findViewById(R.id.loginButton);
-        TextView resetPassword = view.findViewById(R.id.resetPassword);
-
-        /* Listener */
-        loginButton.setOnClickListener(v -> loginUser());
-        resetPassword.setOnClickListener(v -> openFragment(new ResetPasswordFragment(), getParentFragmentManager(), R.id.fragmentWelcome));
+        loginButton = view.findViewById(R.id.loginButton);
+        resetPassword = view.findViewById(R.id.resetPassword);
 
         return view;
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        loginButton.setOnClickListener(v -> loginUser());
+        resetPassword.setOnClickListener(v ->
+                openFragment(new ResetPasswordFragment(), getParentFragmentManager(), R.id.fragmentWelcome)
+        );
     }
 
     @Override
@@ -59,12 +68,7 @@ public class LoginFragment extends Fragment {
         FirebaseUser currentUser = mAuth.getCurrentUser();
 
         if (currentUser != null) {
-            String userId = currentUser.getUid();
-
-            SessionManager sessionManager = new SessionManager(getContext());
-            sessionManager.saveUserSession(userId, null, null);
-
-            openActivity(requireActivity(), MainActivity.class);
+            sendToMain(currentUser);
         }
     }
 
@@ -92,14 +96,7 @@ public class LoginFragment extends Fragment {
                             FirebaseUser user = mAuth.getCurrentUser();
 
                             if (user != null) {
-                                String userId = user.getUid();
-                                String userEmail = user.getEmail();
-                                String userName = user.getDisplayName();
-
-                                SessionManager sessionManager = new SessionManager(getContext());
-                                sessionManager.saveUserSession(userId, userEmail, userName);
-
-                                openActivity(requireActivity(), MainActivity.class);
+                                sendToMain(user);
                             }
                         } else {
                             Toast.makeText(getActivity(), "Authentication failed.", Toast.LENGTH_SHORT).show();
@@ -108,5 +105,16 @@ public class LoginFragment extends Fragment {
                         }
                     }
                 });
+    }
+
+    private void sendToMain(FirebaseUser user) {
+        String userId = user.getUid();
+        String userEmail = user.getEmail();
+        String userName = user.getDisplayName();
+
+        SessionManager sessionManager = new SessionManager(getContext());
+        sessionManager.saveUserSession(userId, userEmail, userName);
+
+        openActivity(requireActivity(), MainActivity.class);
     }
 }

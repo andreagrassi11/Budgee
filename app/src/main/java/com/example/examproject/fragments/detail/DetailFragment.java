@@ -8,6 +8,9 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import com.example.examproject.R;
 import com.example.examproject.database.DatabaseManagerTry;
@@ -21,13 +24,31 @@ public class DetailFragment extends Fragment {
     private int id;
     private String title;
     private String type;
+    private String userId;
     private DatabaseManagerTry dbManager;
+    private Button update;
+    private Button delete;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_detail, container, false);
+
         SessionManager sessionManager = new SessionManager(getContext());
         dbManager = new DatabaseManagerTry(getContext());
+
+        titleView = view.findViewById(R.id.editTextText11);
+
+        /* Recupera id utente */
+        userId = sessionManager.getUserId();
+        update = view.findViewById(R.id.buttonUpdate);
+        delete = view.findViewById(R.id.buttonDelete);
+
+        return view;
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View rootView, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(rootView, savedInstanceState);
 
         /* Recupero dati bundle */
         Bundle bundle = getArguments();
@@ -35,14 +56,8 @@ public class DetailFragment extends Fragment {
             id = bundle.getInt("id");
             title = bundle.getString("title");
             type = bundle.getString("type");
-            titleView = view.findViewById(R.id.editTextText11);
             titleView.setText(title);
         }
-
-        /* Recupera id utente */
-        String userId = sessionManager.getUserId();
-        Button update = view.findViewById(R.id.buttonUpdate);
-        Button delete = view.findViewById(R.id.buttonDelete);
 
         /* Update */
         update.setOnClickListener(v -> {
@@ -91,7 +106,5 @@ public class DetailFragment extends Fragment {
             else
                 Toast.makeText(getContext(), "Delete failed!", Toast.LENGTH_SHORT).show();
         });
-
-        return view;
     }
 }

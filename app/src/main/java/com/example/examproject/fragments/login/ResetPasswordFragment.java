@@ -8,6 +8,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.examproject.R;
@@ -28,10 +30,14 @@ public class ResetPasswordFragment extends Fragment {
 
         resetButton = view.findViewById(R.id.button4);
 
-        /* Listener */
-        resetButton.setOnClickListener(v -> resetPassword(view));
-
         return view;
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        resetButton.setOnClickListener(v -> resetPassword(view));
     }
 
     private void resetPassword(View view) {

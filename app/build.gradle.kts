@@ -46,11 +46,12 @@ dependencies {
     implementation("androidx.fragment:fragment:$fragment_version")
     implementation(platform("com.google.firebase:firebase-bom:33.7.0"))
     implementation("com.google.firebase:firebase-analytics")
-    implementation("com.google.firebase:firebase-auth")
-    implementation("com.google.firebase:firebase-firestore")
-    implementation("com.google.firebase:firebase-firestore-ktx:24.7.0");
+    implementation("com.google.firebase:firebase-auth");
         // Face features
     implementation("com.google.mlkit:face-detection:16.0.0");
         // Text features
     implementation("com.google.android.gms:play-services-mlkit-text-recognition:16.0.0");
+    // Navigation
+    implementation("androidx.navigation:navigation-fragment-ktx:2.7.0");
+    implementation("androidx.navigation:navigation-ui-ktx:2.7.0");
 }
